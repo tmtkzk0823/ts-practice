@@ -8,20 +8,24 @@ TypeScript / tsx / Hono / Zod
 
 ## 動かし方
 
-ホストにグローバルインストールせず、Dockerコンテナ内で実行する。
+ホストにグローバルインストールせず、Docker（Dockerfile + docker-compose）で実行する。
 
 ```bash
-docker run --rm -it -v "$PWD":/app -w /app node:24 bash
-corepack enable
-pnpm install
-pnpm tsx src/01-setup/index.ts
+docker compose up -d
+docker compose exec app pnpm install
+docker compose exec app pnpm tsx src/01-setup/index.ts
 ```
+
+`06-hono-mini` を起動したら http://localhost:8787 でアクセスできる。停止は `docker compose down`。
 
 ## ディレクトリ構成
 
 ```
 ts-practice/
 ├── README.md
+├── Dockerfile
+├── docker-compose.yml
+├── .dockerignore
 ├── package.json         # type: module, scripts に typecheck
 ├── tsconfig.json        # strict: true, module/moduleResolution: nodenext
 ├── .gitignore
