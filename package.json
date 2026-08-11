@@ -1,0 +1,6 @@
+{
+  "packageManager": "pnpm@11.21.0",
+  "devDependencies": {
+    "node": "runtime:24.19.0"
+  }
+}
