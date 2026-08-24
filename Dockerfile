@@ -13,4 +13,5 @@ RUN pnpm install --frozen-lockfile
 
 COPY . .
 
-CMD ["pnpm", "tsx"]
+# CMD ["pnpm", "tsx"]
+CMD ["sleep", "infinity"]
